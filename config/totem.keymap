@@ -11,7 +11,6 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -30,21 +29,7 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-        };
-
-        combo_tvp {
-            timeout-ms = <100>;
-            key-positions = <11 12 13>;
-            bindings = <&tog TVP1>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     macros {
         gif: gif {
@@ -87,8 +72,8 @@
             bindings = <
          &kp Q       &kp W       &kp E        &kp R        &kp T        &kp Y    &kp U        &kp I        &kp O       &kp P
          &mt LGUI A  &mt LALT S  &mt LCTRL D  &mt LSHFT F  &kp G        &kp H    &mt RSHFT J  &mt RCTRL K  &mt RALT L  &mt RGUI SEMI
-&kp ESC  &kp Z       &kp X       &kp C        &kp V        &kp B        &kp N    &kp M        &kp COMMA    &kp DOT     &kp MINUS      &kp BSLH
-                                 &kp DEL      &lt NAV TAB  &kp SPACE    &kp RET  &lt SYM ESC  &kp BSPC
+&kp ESC  &kp Z       &kp X       &kp C        &kp V        &kp B        &kp N    &kp M        &kp COMMA    &kp DOT     &kp MINUS      &kp SLASH
+                                 &kp DEL      &lt 1 TAB    &kp SPACE    &kp RET  &lt 2 ESC    &kp BSPC
             >;
         };
 
@@ -111,10 +96,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp ESC    &bt BT_CLR  &kp UP    &kp EQUAL  &kp LBRC    &kp RBRC  &kp KP_N7    &kp KP_N8  &kp KP_N9  &kp KP_PLUS
-        &kp LSHFT  &kp LEFT    &kp DOWN  &kp RIGHT  &kp LBKT    &kp RBKT  &kp KP_N4    &kp KP_N5  &kp KP_N6  &kp KP_MINUS
-&trans  &kp DEL    &kp PG_UP   &kp CAPS  &kp PG_DN  &kp LPAR    &kp RPAR  &kp KP_N1    &kp KP_N2  &kp KP_N3  &kp KP_MULTIPLY  &trans
-                               &trans    &trans     &trans      &mo ADJ   &lt 3 KP_N0  &trans
+        &trans  &trans    &trans        &kp PG_UP  &kp LBRC    &kp RBRC  &kp KP_N7    &kp KP_N8  &kp KP_N9  &kp KP_PLUS
+        &trans  &kp LEFT  &kp UP_ARROW  &kp RIGHT  &kp LBKT    &kp RBKT  &kp KP_N4    &kp KP_N5  &kp KP_N6  &kp KP_MINUS
+&trans  &trans  &trans    &kp DOWN      &kp PG_DN  &kp LPAR    &kp RPAR  &kp KP_N1    &kp KP_N2  &kp KP_N3  &kp KP_MULTIPLY  &kp KP_EQUAL
+                          &trans        &trans     &trans      &trans    &lt 3 KP_N0  &trans
             >;
         };
 
@@ -140,7 +125,7 @@
         &kp EXCL     &kp AT       &kp HASH   &kp DLLR  &kp PRCNT    &kp CARET     &kp AMPS        &kp RA(U)   &kp SQT     &kp DQT
         &kp RA(A)    &trans       &kp RA(S)  &trans    &trans       &kp C_MUTE    &kp LS(RA(N4))  &kp RA(N5)  &kp RA(N4)  &kp RA(O)
 &trans  &kp RA(F18)  &kp RA(F19)  &trans     &trans    &trans       &kp C_VOL_DN  &kp C_VOL_UP    &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
-                                  &trans     &to 3     &mo ADJ      &trans        &kp C_PP        &trans
+                                  &trans     &mo 3     &trans       &trans        &kp C_PP        &trans
             >;
         };
 
@@ -171,55 +156,6 @@
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        tvp1_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "TVP 1";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-            //             ┃ NEXT FILE ┃ MARK IN   ┃ ROTATE    ┃ MARK OUT  ┃ SHOW SNAP ┃   ┃           ┃           ┃           ┃           ┃           ┃
-            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-            //             ┃ TVP II    ┃ LEFT      ┃ PAN       ┃ RIGHT     ┃ PLAY/FLIP ┃   ┃           ┃           ┃           ┃           ┃           ┃
-            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            // ┃ FULLSCR   ┃ SHIFT     ┃ COPY      ┃ DELETE    ┃ PASTE     ┃ IMG MARK  ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
-            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃           ┃ UNDO/SAVE ┃  SEL/MOV  ┃   ┃           ┃           ┃           ┃
-            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-
-            bindings = <
-       &kp TAB     &kp I      &kp LC(LALT)  &kp O        &kp LC(F20)    &none  &none  &none  &none  &none
-       &lt TVP2 L  &kp LEFT   &kp LALT      &kp RIGHT    &kp SPACE      &none  &none  &none  &none  &none
-&kp J  &kp LSHFT   &kp LC(C)  &kp BSPC      &kp LC(V)    &kp LC(F19)    &none  &none  &none  &none  &none  &none
-                              &trans        &kp LC(F14)  &kp LC(F13)    &none  &none  &none
-            >;
-        };
-
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        tvp2_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "TVP 2";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-            //             ┃ SOLO      ┃ TOGGLE IN ┃ RESET ROT ┃ TOGGLE OUT┃ TAKE SNAP ┃   ┃           ┃           ┃           ┃           ┃           ┃
-            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-            //             ┃ ---       ┃ LAST KEY  ┃ NEW KEY   ┃ NEXT KEY  ┃ ENTER     ┃   ┃           ┃           ┃           ┃           ┃           ┃
-            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            // ┃           ┃ FULLSCR   ┃ CPY2BRUSH ┃ DEL HEAD  ┃ PSTinPLACE┃ BOOK MARK ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
-            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃           ┃ REDO/SAV1 ┃TRANS/WARP ┃   ┃           ┃           ┃           ┃
-            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-
-            bindings = <
-        &kp LC(F18)  &kp LS(I)     &kp LS(HOME)  &kp LS(O)      &kp LS(F)      &trans  &kp F7  &kp F8  &kp F9  &kp F12
-        &trans       &kp LS(LEFT)  &kp LC(F17)   &kp LS(RIGHT)  &kp RET        &trans  &kp F4  &kp F5  &kp F6  &kp F11
-&trans  &kp J        &kp LS(C)     &kp LC(F16)   &kp LS(V)      &kp LC(F15)    &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
-                                   &trans        &kp LC(F12)    &kp LC(F11)    &trans  &trans  &trans
-            >;
-        };
     };
 };
