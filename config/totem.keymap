@@ -97,10 +97,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &trans            &trans             &trans                     &kp PG_UP             &kp LBRC    &kp RBRC  &kp KP_N7    &kp KP_N8  &kp KP_N9  &kp KP_PLUS
-       &kp LEFT_COMMAND  &mt LEFT LEFT_ALT  &mt UP_ARROW LEFT_CONTROL  &mt RIGHT LEFT_SHIFT  &kp LBKT    &kp RBKT  &kp KP_N4    &kp KP_N5  &kp KP_N6  &kp KP_MINUS
-&none  &trans            &trans             &kp DOWN                   &kp PG_DN             &kp LPAR    &kp RPAR  &kp KP_N1    &kp KP_N2  &kp KP_N3  &kp KP_MULTIPLY  &kp KP_EQUAL
-                                            &trans                     &trans                &trans      &trans    &lt 3 KP_N0  &trans
+       &trans            &trans             &trans                     &kp PG_UP                   &kp LBRC    &kp RBRC  &kp KP_N7    &kp KP_N8  &kp KP_N9  &kp KP_PLUS
+       &kp LEFT_COMMAND  &mt LEFT_ALT LEFT  &mt LEFT_CONTROL UP_ARROW  &mt LEFT_SHIFT RIGHT_ARROW  &kp LBKT    &kp RBKT  &kp KP_N4    &kp KP_N5  &kp KP_N6  &kp KP_MINUS
+&none  &trans            &trans             &kp DOWN                   &kp PG_DN                   &kp LPAR    &kp RPAR  &kp KP_N1    &kp KP_N2  &kp KP_N3  &kp KP_MULTIPLY  &kp KP_EQUAL
+                                            &trans                     &trans                      &trans      &trans    &lt 3 KP_N0  &trans
             >;
         };
 
